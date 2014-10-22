@@ -1,0 +1,31 @@
+{
+  "name": "zip-folder",
+  "version": "1.0.0",
+  "description": "zips a folder and calls your callback when it's done",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sole/node-zip-folder"
+  },
+  "keywords": [
+    "zip",
+    "folder"
+  ],
+  "author": "sole",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/sole/node-zip-folder/issues"
+  },
+  "homepage": "https://github.com/sole/node-zip-folder",
+  "dependencies": {
+    "archiver": "^0.11.0"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.9.0",
+    "temporary": "0.0.8",
+    "unzip": "^0.1.11"
+  }
+}
