@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/sole/node-zip-folder",
   "dependencies": {
-    "archiver": "^0.11.0"
+    "archiver": "1.3.0",
+    "fs": "0.0.1-security"
   },
   "devDependencies": {
     "nodeunit": "^0.9.0",
