@@ -9,17 +9,24 @@ function zipFolder(srcFolder, zipFilePath, callback) {
 		callback();
 	});
 
-	zipArchive.pipe(output);
-
-	zipArchive.bulk([
-		{ cwd: srcFolder, src: ['**/*'], expand: true }
-	]);
-
-	zipArchive.finalize(function(err, bytes) {
-		if(err) {
-			callback(err);
+	zipArchive.on('warning', function(err) {
+		if (err.code === 'ENOENT') {
+			// log warning
+		} else {
+			// throw error
+			throw err;
 		}
 	});
+
+	zipArchive.on('error', function(err) {
+		throw err;
+	});
+
+	zipArchive.pipe(output);
+
+	zipArchive.directory(srcFolder, false);
+
+	zipArchive.finalize();
 }
 
 module.exports = zipFolder;

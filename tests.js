@@ -6,7 +6,7 @@ var zipFolder = require('./index');
 
 var txtFileName = 'file.txt';
 var txtFileContents = 'this is a text file';
-var zipFileName = 'archive.zip';
+// var zipFileName = 'archive.zip';
 
 function emptyDirectory(dirName) {
 	var dirFiles = fs.readdirSync(dirName);
@@ -14,7 +14,7 @@ function emptyDirectory(dirName) {
 		var entryPath = path.join(dirName, f);
 		var fileStats = fs.statSync(entryPath);
 		if(fileStats.isFile()) {
-			fs.unlink(entryPath);
+			fs.unlinkSync(entryPath);
 		} else {
 			emptyDirectory(entryPath);
 		}
@@ -45,12 +45,12 @@ module.exports = {
 	tearDown: function(callback) {
 		
 		emptyDirectory(this.tmpSrcDir.path);
-		this.tmpSrcDir.rmdir();
+		this.tmpSrcDir.rmdirSync();
 
 		emptyDirectory(this.tmpZipExtractionDir.path);
-		this.tmpZipExtractionDir.rmdir();
+		this.tmpZipExtractionDir.rmdirSync();
 		
-		this.tmpZipFile.unlink();
+		this.tmpZipFile.unlinkSync();
 		
 		callback();
 	},
