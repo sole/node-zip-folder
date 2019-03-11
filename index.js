@@ -12,7 +12,7 @@ function zipFolder(srcFolder, zipFilePath, callback) {
 	zipArchive.pipe(output);
 
 	zipArchive.bulk([
-		{ cwd: srcFolder, src: ['**/*'], expand: true }
+		{ cwd: srcFolder, src: ['**/*'], expand: true, dot: true }
 	]);
 
 	zipArchive.finalize(function(err, bytes) {
