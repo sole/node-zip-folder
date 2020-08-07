@@ -24,8 +24,8 @@
     "archiver": "^5.0.0"
   },
   "devDependencies": {
+    "extract-zip": "^2.0.1",
     "mkdirp": "^1.0.4",
-    "temporary": "0.0.8",
-    "unzip": "^0.1.11"
+    "temporary": "0.0.8"
   }
 }
